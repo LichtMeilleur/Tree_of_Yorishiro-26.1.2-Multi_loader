@@ -9,7 +9,7 @@ C:\\Users\\Owner\\.gradle\\caches\\neoformruntime\\assets
 
 # User Supplied Program Arguments
 --mod
-polluted_world
+tree_of_yorishiro
 --all
 --output
 "J:\\minecraft orgenal mod with GPT\\tree_of_yorishiro\\neoforge\\src\\generated\\resources"

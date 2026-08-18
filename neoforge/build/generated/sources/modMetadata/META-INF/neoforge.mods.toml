@@ -1,31 +1,31 @@
 license="All Rights Reserved"
 
 [[mods]]
-modId="polluted_world"
-version="0.0.1"
-displayName="polluted_world"
+modId="tree_of_yorishiro"
+version="1.2.2"
+displayName="Tree Of Yorishiro"
 authors="LichtMeilleur"
 description='''
-polluted world is ground pollution
+Tree Of Yorishiro mod.
 '''
 
-[[dependencies.polluted_world]]
+[[dependencies.tree_of_yorishiro]]
 modId="neoforge"
 type="required"
 versionRange="[26.1.2.42-beta,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.polluted_world]]
+[[dependencies.tree_of_yorishiro]]
 modId="minecraft"
 type="required"
 versionRange="[26.1.2]"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.polluted_world]]
-modId="terrablender"
+[[dependencies.tree_of_yorishiro]]
+modId="geckolib"
 type="required"
-versionRange="[0,)"
+versionRange="[5.5.1,)"
 ordering="AFTER"
 side="BOTH"

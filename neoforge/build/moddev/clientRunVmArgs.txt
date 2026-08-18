@@ -7,5 +7,5 @@ jdk.naming.dns/com.sun.jndi.dns=java.naming
 "-Dlog4j2.configurationFile=J:\\minecraft orgenal mod with GPT\\tree_of_yorishiro\\neoforge\\build\\moddev\\clientLog4j2.xml"
 -Djava.net.preferIPv6Addresses=system
 -Dneoforge.enableGameTest=true
--Dneoforge.enabledGameTestNamespaces=polluted_world
+-Dneoforge.enabledGameTestNamespaces=tree_of_yorishiro
 -Dforge.logging.markers=REGISTRIES

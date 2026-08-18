@@ -49,3 +49,4 @@ rootProject.name = "tree_of_yorishiro"
 
 include("fabric")
 include("neoforge")
+
