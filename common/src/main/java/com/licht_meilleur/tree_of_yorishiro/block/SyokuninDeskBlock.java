@@ -3,9 +3,11 @@ package com.licht_meilleur.tree_of_yorishiro.block;
 import com.licht_meilleur.tree_of_yorishiro.block.entity.SyokuninDeskBlockEntity;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModBlockEntities;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModBlocks;
+import com.licht_meilleur.tree_of_yorishiro.screen.MenuOpeningBridge;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.LivingEntity;
@@ -113,16 +115,35 @@ public class SyokuninDeskBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide()) {
-            BlockEntity raw = level.getBlockEntity(pos);
-
-            if (raw instanceof MenuProvider provider) {
-                player.openMenu(provider);
-            }
+    protected InteractionResult useWithoutItem(
+            BlockState state,
+            Level level,
+            BlockPos pos,
+            Player player,
+            BlockHitResult hit
+    ) {
+        if (level.isClientSide()) {
+            return InteractionResult.SUCCESS;
         }
 
-        return InteractionResult.SUCCESS;
+        if (!(player instanceof ServerPlayer serverPlayer)) {
+            return InteractionResult.CONSUME;
+        }
+
+        BlockEntity blockEntity =
+                level.getBlockEntity(pos);
+
+        if (!(blockEntity
+                instanceof SyokuninDeskBlockEntity desk)) {
+            return InteractionResult.PASS;
+        }
+
+        MenuOpeningBridge.openTrade(
+                serverPlayer,
+                desk
+        );
+
+        return InteractionResult.CONSUME;
     }
 
     @Override

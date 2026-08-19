@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:crafting_table": 1
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 45,
+      "minecraft:time_since_rest": 3414,
+      "minecraft:walk_one_cm": 5963,
+      "minecraft:total_world_time": 3425,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 3414,
+      "minecraft:time_since_death": 3414
+    },
+    "minecraft:picked_up": {
+      "tree_of_yorishiro:study_book": 1,
+      "tree_of_yorishiro:ball": 1
+    }
+  },
+  "DataVersion": 4790
+}

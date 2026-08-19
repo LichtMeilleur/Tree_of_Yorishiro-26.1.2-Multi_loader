@@ -12,10 +12,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.licht_meilleur.tree_of_yorishiro.TreeofYorishiroMod"
+			"com.licht_meilleur.tree_of_yorishiro.fabric.FabricTreeOfYorishiroMod"
 		],
 		"client": [
-			"com.licht_meilleur.tree_of_yorishiro.client.TreeofYorishiroClient"
+			"com.licht_meilleur.tree_of_yorishiro.fabric.client.FabricTreeOfYorishiroClient"
 		]
 	},
 

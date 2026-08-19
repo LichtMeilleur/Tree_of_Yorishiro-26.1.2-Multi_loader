@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "CYB",
+    " F "
+  ],
+  "key": {
+    "C": "minecraft:crafting_table",
+    "F": "minecraft:furnace",
+    "B": "minecraft:blast_furnace",
+    "S": "minecraft:smithing_table",
+    "Y": "tree_of_yorishiro:yorishiro_stone_item"
+  },
+  "result": {
+    "id": "tree_of_yorishiro:yorisyokunin_item",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "tree_of_yorishiro:headband": 1,
+      "minecraft:bee_nest": 5
+    },
+    "minecraft:used": {
+      "tree_of_yorishiro:rainbow_seed": 1,
+      "minecraft:bee_nest": 45
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 1658,
+      "minecraft:time_since_rest": 7951,
+      "minecraft:walk_one_cm": 26075,
+      "minecraft:total_world_time": 7970,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 5608,
+      "minecraft:crouch_one_cm": 151,
+      "minecraft:sneak_time": 54,
+      "minecraft:play_time": 7951,
+      "minecraft:jump": 76,
+      "minecraft:time_since_death": 7951
+    }
+  },
+  "DataVersion": 4790
+}

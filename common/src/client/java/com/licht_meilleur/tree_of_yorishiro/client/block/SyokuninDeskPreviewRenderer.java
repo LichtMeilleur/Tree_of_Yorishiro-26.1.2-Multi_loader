@@ -2,7 +2,6 @@ package com.licht_meilleur.tree_of_yorishiro.client.block;
 
 import com.licht_meilleur.tree_of_yorishiro.block.SyokuninDeskBlock;
 import com.licht_meilleur.tree_of_yorishiro.item.YorisyokuninSummonItem;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -10,59 +9,136 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class SyokuninDeskPreviewRenderer {
+public final class SyokuninDeskPreviewRenderer {
 
-    public static void register() {
-        ClientTickEvents.END_CLIENT_TICK.register(client -> tick(client));
+    private SyokuninDeskPreviewRenderer() {
     }
 
-    private static void tick(Minecraft mc) {
-        if (mc.player == null || mc.level == null) return;
+    public static void clientTick() {
+        Minecraft minecraft =
+                Minecraft.getInstance();
 
-        ItemStack stack = mc.player.getMainHandItem();
-        if (!(stack.getItem() instanceof YorisyokuninSummonItem)) return;
+        if (minecraft.player == null
+                || minecraft.level == null) {
+            return;
+        }
 
-        if (!(mc.hitResult instanceof BlockHitResult hit)) return;
+        ItemStack stack =
+                minecraft.player.getMainHandItem();
 
-        BlockPos basePos = hit.getBlockPos().above();
-        Direction facing = mc.player.getDirection().getOpposite();
+        if (!(stack.getItem()
+                instanceof YorisyokuninSummonItem)) {
+            return;
+        }
 
-        // 中央
-        drawBoxParticles(mc, basePos, true);
+        if (!(minecraft.hitResult
+                instanceof BlockHitResult hit)) {
+            return;
+        }
 
-        // コリジョン
-        for (BlockPos offset : SyokuninDeskBlock.NORTH_COLLISIONS) {
-            BlockPos worldPos = basePos.offset(
-                    SyokuninDeskBlock.rotateOffset(offset, facing)
+        BlockPos basePosition =
+                hit.getBlockPos().above();
+
+        Direction facing =
+                minecraft.player
+                        .getDirection()
+                        .getOpposite();
+
+        drawBoxParticles(
+                minecraft,
+                basePosition,
+                true
+        );
+
+        for (BlockPos offset
+                : SyokuninDeskBlock.NORTH_COLLISIONS) {
+
+            BlockPos worldPosition =
+                    basePosition.offset(
+                            SyokuninDeskBlock.rotateOffset(
+                                    offset,
+                                    facing
+                            )
+                    );
+
+            drawBoxParticles(
+                    minecraft,
+                    worldPosition,
+                    false
+            );
+        }
+    }
+
+    private static void drawBoxParticles(
+            Minecraft minecraft,
+            BlockPos position,
+            boolean center
+    ) {
+        double y =
+                position.getY() + 0.08D;
+
+        double step =
+                0.125D;
+
+        for (double progress = 0.0D;
+             progress <= 1.001D;
+             progress += step) {
+
+            spawn(
+                    minecraft,
+                    position.getX() + progress,
+                    y,
+                    position.getZ(),
+                    center
             );
 
-            drawBoxParticles(mc, worldPos, false);
+            spawn(
+                    minecraft,
+                    position.getX() + progress,
+                    y,
+                    position.getZ() + 1.0D,
+                    center
+            );
+
+            spawn(
+                    minecraft,
+                    position.getX(),
+                    y,
+                    position.getZ() + progress,
+                    center
+            );
+
+            spawn(
+                    minecraft,
+                    position.getX() + 1.0D,
+                    y,
+                    position.getZ() + progress,
+                    center
+            );
         }
     }
 
-    // ★これを追加する
-    private static void drawBoxParticles(Minecraft mc, BlockPos pos, boolean center) {
-        double y = pos.getY() + 0.08;
-        double step = 0.125;
-
-        for (double t = 0.0; t <= 1.001; t += step) {
-            spawn(mc, pos.getX() + t, y, pos.getZ(), center);
-            spawn(mc, pos.getX() + t, y, pos.getZ() + 1.0, center);
-            spawn(mc, pos.getX(), y, pos.getZ() + t, center);
-            spawn(mc, pos.getX() + 1.0, y, pos.getZ() + t, center);
+    private static void spawn(
+            Minecraft minecraft,
+            double x,
+            double y,
+            double z,
+            boolean center
+    ) {
+        if (minecraft.level == null) {
+            return;
         }
-    }
 
-    // ★これも追加
-    private static void spawn(Minecraft mc, double x, double y, double z, boolean center) {
-        mc.level.addParticle(
-                center ? ParticleTypes.HAPPY_VILLAGER : ParticleTypes.END_ROD,
+        minecraft.level.addParticle(
+                center
+                        ? ParticleTypes.HAPPY_VILLAGER
+                        : ParticleTypes.END_ROD,
                 x,
                 y,
                 z,
-                0.0,
-                0.0,
-                0.0
+                0.0D,
+                0.0D,
+                0.0D
         );
     }
 }

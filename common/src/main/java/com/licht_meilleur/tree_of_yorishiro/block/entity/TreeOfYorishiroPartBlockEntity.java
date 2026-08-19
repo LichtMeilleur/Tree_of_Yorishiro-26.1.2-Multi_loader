@@ -10,9 +10,7 @@ import com.licht_meilleur.tree_of_yorishiro.entity.ChibishiroColor;
 import com.licht_meilleur.tree_of_yorishiro.entity.ChibishiroEntity;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModBlockEntities;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModEntities;
-import com.licht_meilleur.tree_of_yorishiro.screen.TreeOfYorishiroMenuData;
 import com.licht_meilleur.tree_of_yorishiro.screen.TreeOfYorishiroScreenHandler;
-import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -27,6 +25,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Inventory;
@@ -45,48 +44,84 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class TreeOfYorishiroPartBlockEntity extends BlockEntity
-        implements GeoBlockEntity, ExtendedMenuProvider<TreeOfYorishiroMenuData> {
+public class TreeOfYorishiroPartBlockEntity
+        extends BlockEntity
+        implements GeoBlockEntity, MenuProvider {
 
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private final AnimatableInstanceCache cache =
+            GeckoLibUtil.createInstanceCache(this);
 
-    private final List<TreeChibishiroData> chibis = new ArrayList<>();
-    private boolean initialized = false;
-    private int summonCheckCooldown = 0;
+    private final List<TreeChibishiroData> chibis =
+            new ArrayList<>();
+
+    private boolean initialized;
+    private int summonCheckCooldown;
     private UUID treeId = UUID.randomUUID();
 
-    private final SimpleContainer trainingInventory = new SimpleContainer(4);
-    private final SimpleContainer adventureInventory = new SimpleContainer(9);
+    private final SimpleContainer trainingInventory =
+            new SimpleContainer(4);
 
-    private ChibishiroColor selectedColor = ChibishiroColor.WHITE;
+    private final SimpleContainer adventureInventory =
+            new SimpleContainer(9);
+
+    private ChibishiroColor selectedColor =
+            ChibishiroColor.WHITE;
 
     private static final TagKey<Item> ADVENTURE_COMMON =
-            TagKey.create(Registries.ITEM, TreeofYorishiroMod.id("adventure_common"));
+            TagKey.create(
+                    Registries.ITEM,
+                    TreeofYorishiroMod.id(
+                            "adventure_common"
+                    )
+            );
 
     private static final TagKey<Item> ADVENTURE_UNCOMMON =
-            TagKey.create(Registries.ITEM, TreeofYorishiroMod.id("adventure_uncommon"));
+            TagKey.create(
+                    Registries.ITEM,
+                    TreeofYorishiroMod.id(
+                            "adventure_uncommon"
+                    )
+            );
 
     private static final TagKey<Item> ADVENTURE_RARE =
-            TagKey.create(Registries.ITEM, TreeofYorishiroMod.id("adventure_rare"));
+            TagKey.create(
+                    Registries.ITEM,
+                    TreeofYorishiroMod.id(
+                            "adventure_rare"
+                    )
+            );
 
-    public TreeOfYorishiroPartBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.TREE_PART, pos, state);
-    }
-
-    @Override
-    public TreeOfYorishiroMenuData getScreenOpeningData(ServerPlayer player) {
-        return new TreeOfYorishiroMenuData(this.worldPosition);
+    public TreeOfYorishiroPartBlockEntity(
+            BlockPos pos,
+            BlockState state
+    ) {
+        super(
+                ModBlockEntities.TREE_PART,
+                pos,
+                state
+        );
     }
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Yorishiro Tree");
+        return Component.literal(
+                "Yorishiro Tree"
+        );
     }
 
     @Override
-    public AbstractContainerMenu createMenu(int syncId, Inventory playerInventory, Player player) {
-        return new TreeOfYorishiroScreenHandler(syncId, playerInventory, this.worldPosition);
+    public AbstractContainerMenu createMenu(
+            int syncId,
+            Inventory playerInventory,
+            Player player
+    ) {
+        return new TreeOfYorishiroScreenHandler(
+                syncId,
+                playerInventory,
+                this.worldPosition
+        );
     }
+
 
     public static void tick(Level level, BlockPos pos, BlockState state, TreeOfYorishiroPartBlockEntity be) {
         if (!(level instanceof ServerLevel serverLevel)) return;
@@ -380,7 +415,7 @@ public class TreeOfYorishiroPartBlockEntity extends BlockEntity
         data.setTrainingLevel(level);
 
         // テストしやすいように短め。長くしたいなら 5000L に戻してください。
-        data.setTrainingEndTick(now + 00L);
+        data.setTrainingEndTick(now + 5000L);
 
         data.setTrainingLastRewardTick(now);
         data.setSleeping(false);
@@ -515,6 +550,7 @@ public class TreeOfYorishiroPartBlockEntity extends BlockEntity
             syncToClient();
         }
     }
+
 
     private void addAdventureReward(ItemStack stack) {
         if (stack.isEmpty()) return;

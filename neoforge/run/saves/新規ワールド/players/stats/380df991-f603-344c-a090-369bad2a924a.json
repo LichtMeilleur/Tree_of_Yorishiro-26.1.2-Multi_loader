@@ -1,20 +1,26 @@
 {
   "stats": {
-    "minecraft:custom": {
-      "minecraft:sprint_one_cm": 2760,
-      "minecraft:open_chest": 1,
-      "minecraft:time_since_rest": 1934,
-      "minecraft:walk_one_cm": 6779,
-      "minecraft:total_world_time": 1010,
-      "minecraft:leave_game": 1,
-      "minecraft:fly_one_cm": 1378,
-      "minecraft:damage_taken": 30,
-      "minecraft:play_time": 967,
-      "minecraft:jump": 9,
-      "minecraft:time_since_death": 967
+    "minecraft:picked_up": {
+      "minecraft:leaf_litter": 1,
+      "tree_of_yorishiro:yorisyokunin_item": 3,
+      "tree_of_yorishiro:study_desk": 1,
+      "minecraft:oak_sapling": 1
     },
     "minecraft:used": {
-      "polluted_world:gas_mask": 2
+      "tree_of_yorishiro:yorisyokunin_item": 11,
+      "tree_of_yorishiro:rainbow_seed": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 18484,
+      "minecraft:walk_one_cm": 33400,
+      "minecraft:total_world_time": 9582,
+      "minecraft:leave_game": 5,
+      "minecraft:fly_one_cm": 4874,
+      "minecraft:crouch_one_cm": 24,
+      "minecraft:sneak_time": 50,
+      "minecraft:play_time": 9242,
+      "minecraft:jump": 26,
+      "minecraft:time_since_death": 9242
     }
   },
   "DataVersion": 4790

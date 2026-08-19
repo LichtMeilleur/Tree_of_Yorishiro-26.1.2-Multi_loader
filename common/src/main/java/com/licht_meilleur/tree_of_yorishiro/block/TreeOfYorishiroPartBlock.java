@@ -5,11 +5,13 @@ import com.licht_meilleur.tree_of_yorishiro.block.entity.TreeOfYorishiroPartBloc
 import com.licht_meilleur.tree_of_yorishiro.registry.ModBlockEntities;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModBlocks;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModItems;
+import com.licht_meilleur.tree_of_yorishiro.screen.MenuOpeningBridge;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -257,16 +259,36 @@ public class TreeOfYorishiroPartBlock extends BaseEntityBlock {
             return InteractionResult.SUCCESS;
         }
 
-        BlockPos base = switch (this.part) {
-            case UNDER -> pos;
-            case MIDDLE -> pos.below();
-            case TOP -> pos.below(2);
-        };
-
-        BlockEntity be = level.getBlockEntity(base);
-        if (be instanceof TreeOfYorishiroPartBlockEntity treeBe) {
-            player.openMenu(treeBe);
+        if (!(player instanceof ServerPlayer serverPlayer)) {
+            return InteractionResult.CONSUME;
         }
+
+        BlockPos basePosition =
+                switch (this.part) {
+                    case UNDER ->
+                            pos;
+
+                    case MIDDLE ->
+                            pos.below();
+
+                    case TOP ->
+                            pos.below(2);
+                };
+
+        BlockEntity blockEntity =
+                level.getBlockEntity(
+                        basePosition
+                );
+
+        if (!(blockEntity
+                instanceof TreeOfYorishiroPartBlockEntity tree)) {
+            return InteractionResult.PASS;
+        }
+
+        MenuOpeningBridge.openTree(
+                serverPlayer,
+                tree
+        );
 
         return InteractionResult.CONSUME;
     }

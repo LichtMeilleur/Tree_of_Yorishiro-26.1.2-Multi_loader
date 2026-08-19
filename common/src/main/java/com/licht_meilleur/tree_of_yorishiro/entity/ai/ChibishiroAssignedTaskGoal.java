@@ -6,6 +6,7 @@ import com.licht_meilleur.tree_of_yorishiro.entity.ChibishiroAnimState;
 import com.licht_meilleur.tree_of_yorishiro.entity.ChibishiroEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 
@@ -63,13 +64,45 @@ public class ChibishiroAssignedTaskGoal extends Goal {
         double distSq = chibi.distanceToSqr(tx, ty, tz);
 
         if (distSq > 6.25D) {
-            chibi.getNavigation().moveTo(tx, ty, tz, 1.0D);
+            /*
+             * 作業場所へ移動中はWALK。
+             * 以前のPLAYなどが残っている場合も解除する。
+             */
+            if (chibi.getAnimState()
+                    != ChibishiroAnimState.WALK) {
+
+                chibi.setAnimTicks(0);
+                chibi.setAnimState(
+                        ChibishiroAnimState.WALK
+                );
+            }
+
+            chibi.getNavigation().moveTo(
+                    tx,
+                    ty,
+                    tz,
+                    1.0D
+            );
+
             return;
         }
 
         chibi.getNavigation().stop();
-        chibi.setDeltaMovement(0.0D, 0.0D, 0.0D);
-        chibi.getLookControl().setLookAt(tx, ty, tz);
+
+        Vec3 movement =
+                chibi.getDeltaMovement();
+
+        chibi.setDeltaMovement(
+                0.0D,
+                movement.y,
+                0.0D
+        );
+
+        chibi.getLookControl().setLookAt(
+                tx,
+                ty,
+                tz
+        );
 
         if (!startedAnimation) {
             startedAnimation = true;

@@ -7,12 +7,15 @@ import com.geckolib.animation.AnimationController;
 import com.geckolib.animation.RawAnimation;
 import com.geckolib.animation.object.PlayState;
 import com.geckolib.util.GeckoLibUtil;
+import com.licht_meilleur.tree_of_yorishiro.block.entity.SyokuninDeskBlockEntity;
 import com.licht_meilleur.tree_of_yorishiro.entity.ai.YorisyokuninStayAtDeskGoal;
 import com.licht_meilleur.tree_of_yorishiro.entity.ai.YorisyokuninWorkGoal;
+import com.licht_meilleur.tree_of_yorishiro.screen.MenuOpeningBridge;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -26,6 +29,7 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
@@ -189,13 +193,26 @@ public class YorisyokuninEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+    protected InteractionResult mobInteract(
+            Player player,
+            InteractionHand hand
+    ) {
         if (this.level().isClientSide()) {
             return InteractionResult.SUCCESS;
         }
 
-        if (this.entityData.get(ANIM_STATE) == AnimState.SLEEP.ordinal()) {
-            this.entityData.set(ANIM_STATE, AnimState.SLEEP_END.ordinal());
+        if (this.entityData.get(ANIM_STATE)
+                == AnimState.SLEEP.ordinal()) {
+
+            this.entityData.set(
+                    ANIM_STATE,
+                    AnimState.SLEEP_END.ordinal()
+            );
+
+            return InteractionResult.CONSUME;
+        }
+
+        if (!(player instanceof ServerPlayer serverPlayer)) {
             return InteractionResult.CONSUME;
         }
 
@@ -203,12 +220,23 @@ public class YorisyokuninEntity extends PathfinderMob implements GeoEntity {
             return InteractionResult.PASS;
         }
 
-        if (this.level().getBlockEntity(this.deskPos) instanceof MenuProvider provider) {
-            player.openMenu(provider);
-            return InteractionResult.CONSUME;
+        BlockEntity blockEntity =
+                this.level()
+                        .getBlockEntity(
+                                this.deskPos
+                        );
+
+        if (!(blockEntity
+                instanceof SyokuninDeskBlockEntity desk)) {
+            return InteractionResult.PASS;
         }
 
-        return InteractionResult.PASS;
+        MenuOpeningBridge.openTrade(
+                serverPlayer,
+                desk
+        );
+
+        return InteractionResult.CONSUME;
     }
 
 
@@ -227,7 +255,7 @@ public class YorisyokuninEntity extends PathfinderMob implements GeoEntity {
                     int anim = this.entityData.get(ANIM_STATE);
 
                     if (anim == AnimState.WORK.ordinal()) {
-                        state.setAnimation(RawAnimation.begin().thenLoop(ANIM_WORK));
+                        state.setAnimation(RawAnimation.begin().thenPlayAndHold(ANIM_WORK));
                     } else if (anim == AnimState.SLEEP.ordinal()) {
                         state.setAnimation(RawAnimation.begin().thenLoop(ANIM_SLEEP));
                     } else if (anim == AnimState.SLEEP_END.ordinal()) {
