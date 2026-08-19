@@ -1,0 +1,38 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "minecraft:creeper": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:poppy": 1,
+      "minecraft:netherite_sword": 1,
+      "minecraft:oak_sapling": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:oak_sapling": 1,
+      "minecraft:netherite_sword": 1
+    },
+    "minecraft:used": {
+      "minecraft:netherite_sword": 3,
+      "minecraft:poppy": 18,
+      "minecraft:oak_sapling": 1,
+      "minecraft:torch": 22
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 7693,
+      "minecraft:walk_one_cm": 42519,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 1,
+      "minecraft:play_time": 7693,
+      "minecraft:damage_dealt": 246,
+      "minecraft:jump": 91,
+      "minecraft:time_since_death": 7693,
+      "minecraft:drop": 3,
+      "minecraft:total_world_time": 9229,
+      "minecraft:fly_one_cm": 676,
+      "minecraft:crouch_one_cm": 49,
+      "minecraft:sneak_time": 266
+    }
+  },
+  "DataVersion": 4790
+}
