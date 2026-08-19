@@ -1,0 +1,25 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:stripped_oak_log": 19,
+      "minecraft:oak_planks": 26
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 56,
+      "minecraft:time_since_rest": 6464,
+      "minecraft:walk_one_cm": 16929,
+      "minecraft:total_world_time": 6596,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 264,
+      "minecraft:crouch_one_cm": 63,
+      "minecraft:sneak_time": 44,
+      "minecraft:play_time": 6464,
+      "minecraft:jump": 32,
+      "minecraft:time_since_death": 6464
+    },
+    "minecraft:picked_up": {
+      "tree_of_yorishiro:study_desk": 1
+    }
+  },
+  "DataVersion": 4790
+}

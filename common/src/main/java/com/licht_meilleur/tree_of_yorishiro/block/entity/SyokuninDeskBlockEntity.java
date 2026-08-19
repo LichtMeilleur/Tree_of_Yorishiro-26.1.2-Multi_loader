@@ -14,13 +14,13 @@ import com.licht_meilleur.tree_of_yorishiro.registry.ModBlockEntities;
 import com.licht_meilleur.tree_of_yorishiro.registry.ModEntities;
 import com.licht_meilleur.tree_of_yorishiro.screen.YorisyokuninTradeMenuData;
 import com.licht_meilleur.tree_of_yorishiro.screen.YorisyokuninTradeScreenHandler;
-import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Inventory;
@@ -39,7 +39,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 
 public class SyokuninDeskBlockEntity extends BlockEntity
-        implements GeoAnimatable, ExtendedMenuProvider<YorisyokuninTradeMenuData> {
+        implements GeoAnimatable, MenuProvider {
 
     private boolean working = false;
     private int workTicks = 0;
@@ -252,10 +252,6 @@ public class SyokuninDeskBlockEntity extends BlockEntity
         setChanged();
     }
 
-    @Override
-    public YorisyokuninTradeMenuData getScreenOpeningData(ServerPlayer player) {
-        return new YorisyokuninTradeMenuData(this.worldPosition);
-    }
 
     @Override
     public Component getDisplayName() {

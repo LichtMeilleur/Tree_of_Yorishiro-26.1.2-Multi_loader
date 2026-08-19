@@ -1,0 +1,25 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "tree_of_yorishiro:yorisyokunin_item": 1,
+      "minecraft:crafting_table": 1,
+      "tree_of_yorishiro:rainbow_seed": 1
+    },
+    "minecraft:custom": {
+      "minecraft:interact_with_crafting_table": 1,
+      "minecraft:time_since_rest": 11584,
+      "minecraft:walk_one_cm": 11575,
+      "minecraft:total_world_time": 11609,
+      "minecraft:leave_game": 1,
+      "minecraft:crouch_one_cm": 7,
+      "minecraft:sneak_time": 11,
+      "minecraft:play_time": 11584,
+      "minecraft:time_since_death": 11584
+    },
+    "minecraft:crafted": {
+      "tree_of_yorishiro:rainbow_seed": 1,
+      "tree_of_yorishiro:yorisyokunin_item": 1
+    }
+  },
+  "DataVersion": 4790
+}

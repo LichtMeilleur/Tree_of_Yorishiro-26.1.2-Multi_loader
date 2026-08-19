@@ -85,6 +85,18 @@ public class ChibishiroEntity extends PathfinderMob implements GeoEntity {
     private BlockPos homeTreePos;
     private UUID homeTreeUuid;
 
+    private static final String ANIMATION_CONTROLLER_NAME =
+            "controller";
+
+    private static final int ANIMATION_RECOVERY_INTERVAL =
+            20;
+
+    private int clientAnimationRecoveryTicks;
+    private double lastClientAnimationTime =
+            -1.0D;
+
+    private int clientAnimationStalledTicks;
+
     public ChibishiroEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
     }
@@ -130,8 +142,65 @@ public class ChibishiroEntity extends PathfinderMob implements GeoEntity {
         return values[index];
     }
 
-    public void setAnimState(ChibishiroAnimState state) {
-        this.entityData.set(ANIM_STATE, state.ordinal());
+    public void setAnimState(
+            ChibishiroAnimState state
+    ) {
+        if (state == null) {
+            state = ChibishiroAnimState.IDLE;
+        }
+
+        this.entityData.set(
+                ANIM_STATE,
+                state.ordinal()
+        );
+
+        if (!this.level().isClientSide()
+                && isMovementLockedState(state)) {
+            stopAnimationMovement();
+        }
+    }
+
+    public boolean canUseNormalMovement() {
+        ChibishiroAnimState state =
+                getAnimState();
+
+        return state == ChibishiroAnimState.IDLE
+                || state == ChibishiroAnimState.WALK;
+    }
+
+    private static boolean isMovementLockedState(
+            ChibishiroAnimState state
+    ) {
+        return state != ChibishiroAnimState.IDLE
+                && state != ChibishiroAnimState.WALK;
+    }
+
+    private void stopAnimationMovement() {
+        this.getNavigation().stop();
+
+        Vec3 movement =
+                this.getDeltaMovement();
+
+        /*
+         * 横方向だけ止める。
+         * Yを0にすると空中で浮く可能性があるため、
+         * 落下速度は残す。
+         */
+        this.setDeltaMovement(
+                0.0D,
+                movement.y,
+                0.0D
+        );
+
+        this.xxa = 0.0F;
+        this.zza = 0.0F;
+
+        this.getMoveControl().setWantedPosition(
+                this.getX(),
+                this.getY(),
+                this.getZ(),
+                0.0D
+        );
     }
 
     public int getAnimTicks() {
@@ -146,73 +215,192 @@ public class ChibishiroEntity extends PathfinderMob implements GeoEntity {
     public void tick() {
         super.tick();
 
-
-        if (!this.level().isClientSide()) {
-            long dayTime = this.level().getOverworldClockTime() % 24000L;
-            boolean night = dayTime >= 12541L && dayTime <= 23458L;
-
-            if (night && !isInAssignedTaskAnimation()) {
-                if (getAnimState() != ChibishiroAnimState.SLEEP_TASK) {
-                    startSleepTask();
-                }
-                return; // ← ここ重要（他行動止める）
-            }
-
-            if (!night && getAnimState() == ChibishiroAnimState.SLEEP_TASK) {
-                setAnimState(ChibishiroAnimState.IDLE);
-            }
+        /*
+         * アニメーション状態はサーバーだけで更新する。
+         * クライアントはSynchedEntityDataを受信して描画する。
+         */
+        if (this.level().isClientSide()) {
+            tickClientAnimationRecovery();
+            return;
         }
 
-        if (!this.level().isClientSide() && homeTreePos != null) {
-            double maxDistance = 8.0D;
-            Vec3 center = Vec3.atCenterOf(homeTreePos);
+        /*
+         * WALKとIDLE以外では移動を停止する。
+         */
+        if (!canUseNormalMovement()) {
+            stopAnimationMovement();
+        }
 
-            if (this.position().distanceToSqr(center) > maxDistance * maxDistance) {
-                this.getNavigation().moveTo(center.x, center.y, center.z, 1.0D);
+        long dayTime =
+                this.level()
+                        .getOverworldClockTime()
+                        % 24000L;
+
+        boolean night =
+                dayTime >= 12541L
+                        && dayTime <= 23458L;
+
+        if (night
+                && !isInAssignedTaskAnimation()) {
+
+            if (getAnimState()
+                    != ChibishiroAnimState.SLEEP_TASK) {
+                startSleepTask();
             }
 
-            if (this.position().distanceToSqr(center) > 20.0D * 20.0D) {
-                float yaw = this.getYRot();
-                float pitch = this.getXRot();
+            return;
+        }
 
-                this.setPos(center.x, center.y, center.z);
+        if (!night
+                && getAnimState()
+                == ChibishiroAnimState.SLEEP_TASK) {
+            setAnimState(
+                    ChibishiroAnimState.IDLE
+            );
+        }
+
+        /*
+         * 通常移動可能なときだけ、
+         * 木の近くへ戻るNavigationを使用する。
+         */
+        if (homeTreePos != null
+                && canUseNormalMovement()) {
+
+            double maxDistance =
+                    8.0D;
+
+            Vec3 center =
+                    Vec3.atCenterOf(
+                            homeTreePos
+                    );
+
+            double distanceSquared =
+                    this.position()
+                            .distanceToSqr(
+                                    center
+                            );
+
+            if (distanceSquared
+                    > maxDistance * maxDistance) {
+
+                this.getNavigation().moveTo(
+                        center.x,
+                        center.y,
+                        center.z,
+                        1.0D
+                );
+            }
+
+            if (distanceSquared
+                    > 20.0D * 20.0D) {
+
+                float yaw =
+                        this.getYRot();
+
+                float pitch =
+                        this.getXRot();
+
+                this.setPos(
+                        center.x,
+                        center.y,
+                        center.z
+                );
+
                 this.setYRot(yaw);
                 this.setXRot(pitch);
             }
         }
 
-        int ticks = getAnimTicks();
+        int ticks =
+                getAnimTicks();
 
         if (ticks > 0) {
-            setAnimTicks(ticks - 1);
+            int remainingTicks =
+                    ticks - 1;
 
-            if (ticks - 1 <= 0) {
-                ChibishiroAnimState state = getAnimState();
+            setAnimTicks(
+                    remainingTicks
+            );
+
+            if (remainingTicks <= 0) {
+                ChibishiroAnimState state =
+                        getAnimState();
 
                 switch (state) {
-                    case TRAINING1_START -> setAnimState(ChibishiroAnimState.TRAINING1_LOOP);
-                    case TRAINING2_START -> setAnimState(ChibishiroAnimState.TRAINING2_LOOP);
-                    case TRAINING3_START -> setAnimState(ChibishiroAnimState.TRAINING3_LOOP);
+                    case TRAINING1_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.TRAINING1_LOOP
+                            );
 
-                    case STUDY1_START -> setAnimState(ChibishiroAnimState.STUDY1_LOOP);
-                    case STUDY2_START -> setAnimState(ChibishiroAnimState.STUDY2_LOOP);
-                    case STUDY3_START -> setAnimState(ChibishiroAnimState.STUDY3_LOOP);
+                    case TRAINING2_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.TRAINING2_LOOP
+                            );
 
-                    case MEAL_START -> setAnimState(ChibishiroAnimState.MEAL_LOOP);
-                    case SLEEP_START -> setAnimState(ChibishiroAnimState.SLEEP_LOOP);
+                    case TRAINING3_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.TRAINING3_LOOP
+                            );
 
-                    case GAME1_START -> setAnimState(ChibishiroAnimState.GAME1_LOOP);
-                    case GAME2_START -> setAnimState(ChibishiroAnimState.GAME2_LOOP);
-                    case GAME3_START -> setAnimState(ChibishiroAnimState.GAME3_LOOP);
+                    case STUDY1_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.STUDY1_LOOP
+                            );
 
-                    case PLAY1, PLAY2, PLAY3, PLAY4, PLAY5 -> setAnimState(ChibishiroAnimState.IDLE);
+                    case STUDY2_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.STUDY2_LOOP
+                            );
+
+                    case STUDY3_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.STUDY3_LOOP
+                            );
+
+                    case MEAL_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.MEAL_LOOP
+                            );
+
+                    case SLEEP_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.SLEEP_LOOP
+                            );
+
+                    case GAME1_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.GAME1_LOOP
+                            );
+
+                    case GAME2_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.GAME2_LOOP
+                            );
+
+                    case GAME3_START ->
+                            setAnimState(
+                                    ChibishiroAnimState.GAME3_LOOP
+                            );
+
+                    case PLAY1,
+                         PLAY2,
+                         PLAY3,
+                         PLAY4,
+                         PLAY5 ->
+                            setAnimState(
+                                    ChibishiroAnimState.IDLE
+                            );
 
                     case TREASURE_START -> {
-                        if (!this.level().isClientSide() && this.level() instanceof ServerLevel serverLevel) {
+                        if (this.level()
+                                instanceof ServerLevel serverLevel) {
+
                             serverLevel.sendParticles(
                                     ParticleTypes.CLOUD,
                                     this.getX(),
-                                    this.getY() + this.getBbHeight() * 0.5D,
+                                    this.getY()
+                                            + this.getBbHeight()
+                                            * 0.5D,
                                     this.getZ(),
                                     12,
                                     0.2D,
@@ -222,7 +410,9 @@ public class ChibishiroEntity extends PathfinderMob implements GeoEntity {
                             );
                         }
 
-                        this.remove(Entity.RemovalReason.DISCARDED);
+                        this.remove(
+                                Entity.RemovalReason.DISCARDED
+                        );
                     }
 
                     default -> {
@@ -233,41 +423,74 @@ public class ChibishiroEntity extends PathfinderMob implements GeoEntity {
             }
         }
 
-        if (getAnimTicks() <= 0 && !isInAssignedTaskAnimation()) {
-            boolean moving = this.getDeltaMovement().horizontalDistanceSqr() > 0.0025D;
+        if (getAnimTicks() <= 0
+                && !isInAssignedTaskAnimation()) {
+
+            boolean moving =
+                    this.getDeltaMovement()
+                            .horizontalDistanceSqr()
+                            > 0.0025D;
 
             if (moving) {
-                setAnimState(ChibishiroAnimState.WALK);
-            } else {
-                if (this.tickCount % 100 == 0) {
-                    int r = this.getRandom().nextInt(8);
+                setAnimState(
+                        ChibishiroAnimState.WALK
+                );
 
-                    switch (r) {
-                        case 0 -> {
-                            setAnimState(ChibishiroAnimState.PLAY1);
-                            setAnimTicks(120);
-                        }
-                        case 1 -> {
-                            setAnimState(ChibishiroAnimState.PLAY2);
-                            setAnimTicks(120);
-                        }
-                        case 2 -> {
-                            setAnimState(ChibishiroAnimState.PLAY3);
-                            setAnimTicks(120);
-                        }
-                        case 3 -> {
-                            setAnimState(ChibishiroAnimState.PLAY4);
-                            setAnimTicks(120);
-                        }
-                        case 4 -> {
-                            setAnimState(ChibishiroAnimState.PLAY5);
-                            setAnimTicks(120);
-                        }
-                        default -> setAnimState(ChibishiroAnimState.IDLE);
+                return;
+            }
+
+            if (this.tickCount % 100 == 0) {
+                int randomAnimation =
+                        this.getRandom()
+                                .nextInt(8);
+
+                switch (randomAnimation) {
+                    case 0 -> {
+                        setAnimState(
+                                ChibishiroAnimState.PLAY1
+                        );
+                        setAnimTicks(120);
                     }
-                } else if (getAnimState() == ChibishiroAnimState.WALK) {
-                    setAnimState(ChibishiroAnimState.IDLE);
+
+                    case 1 -> {
+                        setAnimState(
+                                ChibishiroAnimState.PLAY2
+                        );
+                        setAnimTicks(120);
+                    }
+
+                    case 2 -> {
+                        setAnimState(
+                                ChibishiroAnimState.PLAY3
+                        );
+                        setAnimTicks(120);
+                    }
+
+                    case 3 -> {
+                        setAnimState(
+                                ChibishiroAnimState.PLAY4
+                        );
+                        setAnimTicks(120);
+                    }
+
+                    case 4 -> {
+                        setAnimState(
+                                ChibishiroAnimState.PLAY5
+                        );
+                        setAnimTicks(120);
+                    }
+
+                    default ->
+                            setAnimState(
+                                    ChibishiroAnimState.IDLE
+                            );
                 }
+            } else if (getAnimState()
+                    == ChibishiroAnimState.WALK) {
+
+                setAnimState(
+                        ChibishiroAnimState.IDLE
+                );
             }
         }
     }
@@ -514,6 +737,170 @@ public class ChibishiroEntity extends PathfinderMob implements GeoEntity {
                     return PlayState.CONTINUE;
                 }
         ));
+    }
+
+    @Override
+    public void onSyncedDataUpdated(
+            EntityDataAccessor<?> accessor
+    ) {
+        super.onSyncedDataUpdated(accessor);
+
+        if (!this.level().isClientSide()) {
+            return;
+        }
+
+        if (!ANIM_STATE.equals(accessor)) {
+            return;
+        }
+
+        ChibishiroAnimState state =
+                getAnimState();
+
+        if (isPersistentTaskAnimation(state)) {
+            resetClientAnimationController();
+        }
+    }
+
+    private void resetClientAnimationController() {
+        if (!this.level().isClientSide()) {
+            return;
+        }
+
+        AnimatableManager<ChibishiroEntity> manager =
+                this.cache
+                        .<ChibishiroEntity>getManagerForId(
+                                this.getId()
+                        );
+
+        AnimationController<ChibishiroEntity> controller =
+                manager.getAnimationControllers()
+                        .get(
+                                ANIMATION_CONTROLLER_NAME
+                        );
+
+        if (controller == null) {
+            return;
+        }
+
+        controller.reset();
+
+        this.clientAnimationRecoveryTicks = 0;
+        this.clientAnimationStalledTicks = 0;
+        this.lastClientAnimationTime = -1.0D;
+    }
+
+    private void tickClientAnimationRecovery() {
+        ChibishiroAnimState state =
+                getAnimState();
+
+        if (!isPersistentTaskAnimation(state)) {
+            this.clientAnimationRecoveryTicks = 0;
+            this.clientAnimationStalledTicks = 0;
+            this.lastClientAnimationTime = -1.0D;
+            return;
+        }
+
+        this.clientAnimationRecoveryTicks++;
+
+        if (this.clientAnimationRecoveryTicks
+                < ANIMATION_RECOVERY_INTERVAL) {
+            return;
+        }
+
+        this.clientAnimationRecoveryTicks = 0;
+
+        AnimatableManager<ChibishiroEntity> manager =
+                this.cache.getManagerForId(
+                        this.getId()
+                );
+
+        AnimationController<ChibishiroEntity> controller =
+                manager.getAnimationControllers()
+                        .get(
+                                ANIMATION_CONTROLLER_NAME
+                        );
+
+        if (controller == null) {
+            return;
+        }
+
+        RawAnimation expectedAnimation =
+                getAnimationForState(state);
+
+        RawAnimation currentAnimation =
+                controller.getCurrentRawAnimation();
+
+        /*
+         * とっくん状態なのにIdleなど別の
+         * アニメーションが残っている場合。
+         */
+        if (currentAnimation == null
+                || !currentAnimation.equals(
+                expectedAnimation
+        )
+                || controller.hasAnimationFinished()) {
+
+            controller.reset();
+
+            this.clientAnimationStalledTicks = 0;
+            this.lastClientAnimationTime = -1.0D;
+            return;
+        }
+
+        /*
+         * 正しいアニメーション名でも、
+         * 再生時間が進んでいない場合を検出する。
+         */
+        double animationTime =
+                controller.getCurrentAnimationTime();
+
+        if (this.lastClientAnimationTime >= 0.0D
+                && Math.abs(
+                animationTime
+                        - this.lastClientAnimationTime
+        ) < 1.0E-4D) {
+
+            this.clientAnimationStalledTicks +=
+                    ANIMATION_RECOVERY_INTERVAL;
+        } else {
+            this.clientAnimationStalledTicks = 0;
+        }
+
+        this.lastClientAnimationTime =
+                animationTime;
+
+        /*
+         * 約2秒間停止していた場合、
+         * Controllerを読み直す。
+         */
+        if (this.clientAnimationStalledTicks >= 40) {
+            controller.reset();
+
+            this.clientAnimationStalledTicks = 0;
+            this.lastClientAnimationTime = -1.0D;
+        }
+    }
+
+    private static boolean isPersistentTaskAnimation(
+            ChibishiroAnimState state
+    ) {
+        return switch (state) {
+            case MEAL_TASK,
+                 STUDY1_TASK,
+                 STUDY2_TASK,
+                 STUDY3_TASK,
+                 TRAINING1_TASK,
+                 TRAINING2_TASK,
+                 TRAINING3_TASK,
+                 GAME1_TASK,
+                 GAME2_TASK,
+                 GAME3_TASK,
+                 SLEEP_TASK ->
+                    true;
+
+            default ->
+                    false;
+        };
     }
 
     @Override

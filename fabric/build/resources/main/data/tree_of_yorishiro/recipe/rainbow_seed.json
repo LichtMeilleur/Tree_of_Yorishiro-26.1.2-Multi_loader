@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "YGB",
+    "OKP",
+    "RSM"
+  ],
+  "key": {
+    "R": "minecraft:red_dye",
+    "O": "minecraft:orange_dye",
+    "Y": "minecraft:yellow_dye",
+    "G": "minecraft:green_dye",
+    "B": "minecraft:blue_dye",
+    "P": "minecraft:purple_dye",
+    "M": "minecraft:pink_dye",
+    "S": "minecraft:wheat_seeds",
+    "K": "tree_of_yorishiro:yorishiro_stone_item"
+  },
+  "result": {
+    "id": "tree_of_yorishiro:rainbow_seed",
+    "count": 1
+  }
+}

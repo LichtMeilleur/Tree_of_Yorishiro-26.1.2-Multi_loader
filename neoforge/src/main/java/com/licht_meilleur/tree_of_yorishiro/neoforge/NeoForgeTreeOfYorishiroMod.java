@@ -4,7 +4,6 @@ import com.licht_meilleur.tree_of_yorishiro.TreeofYorishiroMod;
 import com.licht_meilleur.tree_of_yorishiro.command.ModCommands;
 import com.licht_meilleur.tree_of_yorishiro.entity.ChibishiroEntity;
 import com.licht_meilleur.tree_of_yorishiro.entity.YorisyokuninEntity;
-import com.licht_meilleur.tree_of_yorishiro.neoforge.registry.NeoForgeRegistries;
 import com.licht_meilleur.tree_of_yorishiro.screen.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;

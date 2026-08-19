@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "tree_of_yorishiro:punching_set": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 639,
+      "minecraft:walk_one_cm": 1590,
+      "minecraft:total_world_time": 657,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 639,
+      "minecraft:time_since_death": 639
+    }
+  },
+  "DataVersion": 4790
+}

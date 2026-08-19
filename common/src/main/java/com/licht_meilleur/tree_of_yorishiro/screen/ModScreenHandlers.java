@@ -2,66 +2,106 @@ package com.licht_meilleur.tree_of_yorishiro.screen;
 
 import com.licht_meilleur.tree_of_yorishiro.TreeofYorishiroMod;
 import com.licht_meilleur.tree_of_yorishiro.block.entity.SyokuninDeskBlockEntity;
-import com.licht_meilleur.tree_of_yorishiro.block.entity.TreeOfYorishiroBlockEntity;
-import net.fabricmc.fabric.api.menu.v1.ExtendedMenuType;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
-public class ModScreenHandlers {
+public final class ModScreenHandlers {
 
-    public static MenuType<TreeOfYorishiroScreenHandler> TREE_OF_YORISHIRO;
-    public static MenuType<YorisyokuninTradeScreenHandler> YORISYOKUNIN_TRADE;
+    public static final ResourceKey<MenuType<?>>
+            TREE_OF_YORISHIRO_KEY =
+            ResourceKey.create(
+                    Registries.MENU,
+                    TreeofYorishiroMod.id(
+                            "tree_of_yorishiro"
+                    )
+            );
 
-    private static boolean REGISTERED = false;
+    public static final ResourceKey<MenuType<?>>
+            YORISYOKUNIN_TRADE_KEY =
+            ResourceKey.create(
+                    Registries.MENU,
+                    TreeofYorishiroMod.id(
+                            "yorisyokunin_trade"
+                    )
+            );
 
-    public static void register() {
-        if (REGISTERED) return;
-        REGISTERED = true;
+    public static MenuType<TreeOfYorishiroScreenHandler>
+            TREE_OF_YORISHIRO;
 
-        TREE_OF_YORISHIRO = Registry.register(
-                BuiltInRegistries.MENU,
-                TreeofYorishiroMod.id("tree_of_yorishiro"),
-                new ExtendedMenuType<TreeOfYorishiroScreenHandler, TreeOfYorishiroMenuData>(
-                        ModScreenHandlers::createTreeOfYorishiro,
-                        TreeOfYorishiroMenuData.STREAM_CODEC
-                )
-        );
+    public static MenuType<YorisyokuninTradeScreenHandler>
+            YORISYOKUNIN_TRADE;
 
-        YORISYOKUNIN_TRADE = Registry.register(
-                BuiltInRegistries.MENU,
-                TreeofYorishiroMod.id("yorisyokunin_trade"),
-                new ExtendedMenuType<YorisyokuninTradeScreenHandler, YorisyokuninTradeMenuData>(
-                        ModScreenHandlers::createYorisyokuninTrade,
-                        YorisyokuninTradeMenuData.STREAM_CODEC
-                )
-        );
-
-        TreeofYorishiroMod.LOGGER.info("[TreeOfYorishiro] Registering screen handlers");
-    }
-
-    private static TreeOfYorishiroScreenHandler createTreeOfYorishiro(
+    public static TreeOfYorishiroScreenHandler createTree(
             int syncId,
-            Inventory inv,
+            Inventory inventory,
             TreeOfYorishiroMenuData data
     ) {
-        return new TreeOfYorishiroScreenHandler(syncId, inv, data.pos());
+        return new TreeOfYorishiroScreenHandler(
+                syncId,
+                inventory,
+                data.pos()
+        );
     }
 
-    private static YorisyokuninTradeScreenHandler createYorisyokuninTrade(
+    public static YorisyokuninTradeScreenHandler createTrade(
             int syncId,
-            Inventory inv,
+            Inventory inventory,
             YorisyokuninTradeMenuData data
     ) {
-        var level = inv.player.level();
+        BlockEntity raw =
+                inventory.player
+                        .level()
+                        .getBlockEntity(
+                                data.pos()
+                        );
 
-        SyokuninDeskBlockEntity be = null;
-        var raw = level.getBlockEntity(data.pos());
-        if (raw instanceof SyokuninDeskBlockEntity desk) {
-            be = desk;
-        }
+        SyokuninDeskBlockEntity desk =
+                raw instanceof SyokuninDeskBlockEntity found
+                        ? found
+                        : null;
 
-        return new YorisyokuninTradeScreenHandler(syncId, inv, be, data.pos());
+        return new YorisyokuninTradeScreenHandler(
+                syncId,
+                inventory,
+                desk,
+                data.pos()
+        );
+    }
+
+    public static void bindFabric(
+            MenuType<TreeOfYorishiroScreenHandler> treeMenu,
+            MenuType<YorisyokuninTradeScreenHandler> tradeMenu
+    ) {
+        bind(
+                treeMenu,
+                tradeMenu
+        );
+    }
+
+    public static void bindNeoForge(
+            MenuType<TreeOfYorishiroScreenHandler> treeMenu,
+            MenuType<YorisyokuninTradeScreenHandler> tradeMenu
+    ) {
+        bind(
+                treeMenu,
+                tradeMenu
+        );
+    }
+
+    private static void bind(
+            MenuType<TreeOfYorishiroScreenHandler> treeMenu,
+            MenuType<YorisyokuninTradeScreenHandler> tradeMenu
+    ) {
+        TREE_OF_YORISHIRO =
+                treeMenu;
+
+        YORISYOKUNIN_TRADE =
+                tradeMenu;
+    }
+
+    private ModScreenHandlers() {
     }
 }

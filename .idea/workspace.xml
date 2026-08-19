@@ -5,47 +5,335 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01cf6b62-15e0-4cec-87a2-e708002ef639" name="変更" comment="ARR">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/screen/MenuOpeningBridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/neoforge/src/main/java/com/licht_meilleur/tree_of_yorishiro/neoforge/NeoForgeTreeOfYorishiroMod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/neoforge/src/main/java/com/licht_meilleur/tree_of_yorishiro/neoforge/registry/NeoForgeRegistries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fabric/src/client/java/com/licht_meilleur/tree_of_yorishiro/fabric/client/FabricTreeOfYorishiroClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fabric/src/main/java/com/licht_meilleur/tree_of_yorishiro/fabric/registry/FabricModScreenHandlers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/neoforge/src/client/java/com/licht_meilleur/tree_of_yorishiro/neoforge/client/NeoForgeTreeOfYorishiroClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/neoforge/src/main/java/com/licht_meilleur/tree_of_yorishiro/neoforge/registry/NeoForgeModScreenHandlers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/neoforge/src/main/resources/data/tree_of_yorishiro/neoforge/biome_modifier/add_yorishiro_stone.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/9.4.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.4.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/fabric/polluted_world.fabric.client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/fabric/polluted_world.fabric.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/fabric/polluted_world.fabric.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/neoforge/polluted_world.neoforge.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/client/client2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/main3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric/src/client/client3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric/src/main/fabric.mod.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric/src/main/main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/client/java/com/licht_meilleur/tree_of_yorishiro/client/TreeofYorishiroClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/client/java/com/licht_meilleur/tree_of_yorishiro/client/block/SyokuninDeskPreviewRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/client/java/com/licht_meilleur/tree_of_yorishiro/client/block/SyokuninDeskPreviewRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/TreeofYorishiroMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/TreeofYorishiroMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/SyokuninDeskBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/SyokuninDeskBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/TreeOfYorishiroPartBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/TreeOfYorishiroPartBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/entity/SyokuninDeskBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/entity/SyokuninDeskBlockEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/entity/TreeOfYorishiroPartBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/block/entity/TreeOfYorishiroPartBlockEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/command/ModCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/command/ModCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/entity/ChibishiroEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/entity/ChibishiroEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/entity/YorisyokuninEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/entity/YorisyokuninEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/entity/ai/ChibishiroAssignedTaskGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/entity/ai/ChibishiroAssignedTaskGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModBlockEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModBlockEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModBlocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModItemGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModItemGroups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/registry/ModItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/screen/ModScreenHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/screen/ModScreenHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/world/ModFeatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/world/ModFeatures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/licht_meilleur/tree_of_yorishiro/world/ModWorldGeneration.java" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/src/main/java/com/licht_meilleur/tree_of_yorishiro/fabric/world/FabricWorldGeneration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/animations/chibishiro.animation.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/animations/chibishiro.animation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/animations/yorisyokunin.animation.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/animations/yorisyokunin.animation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/models/chibishiro.geo.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/models/chibishiro.geo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/models/yorisyokunin.geo.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/geckolib/models/yorisyokunin.geo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/lang/ja_jp.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/lang/ja_jp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/textures/block/tree_of_yorishiro.png" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/resources/assets/tree_of_yorishiro/textures/block/tree_of_yorishiro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/client/com/licht_meilleur/polluted_world/client/GasMaskHudRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/client/com/licht_meilleur/polluted_world/client/PollutedWorldClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/client/com/licht_meilleur/polluted_world/client/PollutionBoundaryOverlayRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/client/com/licht_meilleur/polluted_world/client/PollutionBoundaryWorldRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/PollutedWorldFabric.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/PollutedWorldMod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/PollutedWorldTerraBlender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/block/CorpseLootBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/command/PollutedWorldCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/compat/JustEnoughGunsLootCompat$Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/compat/JustEnoughGunsLootCompat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/compat/OptionalItemLookup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/item/FilterItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/item/GasMaskItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/network/ChangeFilterPayload.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/pollution/GasMaskFilterHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/pollution/PollutionLogic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/pollution/SurfacePollutionQueue$Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/pollution/SurfacePollutionQueue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/pollution/SurfacePollutionTransformer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/registry/ModBlocks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/registry/ModItemGroups.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/registry/ModItems.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/registry/PollutedBlocks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/registry/fabric/FabricItemGroups.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/CodeRailTunnelBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/ModBiomeTags.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedStartManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedStructurePlacer$NetworkResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedStructurePlacer$PlaceResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedStructurePlacer$StartResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedStructurePlacer$SurfaceCorpsePlacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedStructurePlacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedWorldConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/PollutedWorldGeneratorCheck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/RotationUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/RotationUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/SideDungeonLayoutTestBuilder$RailChoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/SideDungeonLayoutTestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/StationUnitTestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/StructureNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$LaneConnects.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$LaneEnds.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$MiddleRailPairPlan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$MiddleRailPairUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$RailChoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$RailClusterPlan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder$StationUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/UnitChainTestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/definition/CorpseLootDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/definition/RailDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/definition/SideDungeonDefinition$Side.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/definition/SideDungeonDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/definition/StationDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/definition/SurfaceStructureDefinition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/layout/UnitBounds.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/layout/UnitPlacementSolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/loot/PollutedCorpseMarkerProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/loot/PollutedLootMarkerProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/registry/CorpseLootRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/registry/RailRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/registry/SideDungeonRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/registry/StationRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/registry/SurfaceStructureRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/registry/WeightedPicker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/spawn/PollutedSpawnMarkerProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/spawn/PollutedSurfaceMobSpawner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/world/state/PollutedWorldState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/worldgen/ModBiomes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/worldgen/ModFeatures.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/worldgen/PollutedRegion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/worldgen/feature/DeadTreeFeature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/classes/java/main/com/licht_meilleur/polluted_world/worldgen/feature/DryGrassPatchFeature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/loom-cache/argFiles/runClient" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/build/loom-cache/argFiles/runClient" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/blockstates/corpse_chest_01.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/blockstates/corpse_chest_02.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/blockstates/corpse_chest_03.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/activated_charcoal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/corpse_chest_01.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/corpse_chest_02.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/corpse_chest_03.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/gas_mask.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/high_filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/items/poor_filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/lang/en_us.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/lang/ja_jp.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/block/corpse_chest_01.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/block/corpse_chest_02.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/block/corpse_chest_03.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/item/activated_charcoal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/item/filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/item/gas_mask.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/item/high_filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/models/item/poor_filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/block/corpse_chest_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/block/corpse_chest_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/block/corpse_chest_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/gui/gasmask/gas_mask_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/gui/gasmask/gas_mask_screen1_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/gui/gasmask/gas_mask_screen26_50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/gui/gasmask/gas_mask_screen51_75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/gui/gasmask/gas_mask_screen76_100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/gui/pollution_boundary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/item/activated_charcoal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/item/filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/item/gas_mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/item/high_filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/assets/polluted_world/textures/item/poor_filter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/minecraft/tags/worldgen/world_preset/normal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/minecraft/worldgen/noise_settings/overworld.json.off" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/minecraft/worldgen/world_preset/polluted_world.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/blocks/corpse_chest_01.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/civilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/corpse/civilian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/corpse/maintenance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/corpse/medical.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/corpse/military.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/corpse/research.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/food.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/industrial.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/legendary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/maintenance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/medical.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/military.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/rare.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/research.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/loot_table/start_supply.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/recipe/activated_charcoal_from_charcoal.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/recipe/filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/recipe/gas_mask.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/recipe/high_filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/recipe/poor_filter.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/broken_church.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/church.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/collapse_rail.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/east_side_dungeon_01.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/flooded_collapse_rail.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/normal_rail.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/rail_end.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/rail_gate.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/rail_with_side_street.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_entrance_01.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_entrance_02.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_entrance_03.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_entrance_04.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_village_01.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_village_02.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_village_03.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/station_village_04.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/trains_graveyard.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/structure/west_side_dungeon_01.nbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/tags/worldgen/biome/clean_biomes.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/tags/worldgen/biome/polluted_biomes.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/biome/clean_oasis.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/biome/polluted_dead_forest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/biome/polluted_snowfield.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/configured_feature/dead_bush_patch.json.off" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/configured_feature/dead_tree.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/configured_feature/dead_tree_column.json.off" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/configured_feature/dry_grass_patch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/noise_settings/polluted_overworld.json.off" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/noise_settings/polluted_overworld_simple.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/placed_feature/dead_bush_patch.json.off" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/placed_feature/dead_tree_column.json.off" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/placed_feature/dead_tree_placed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/placed_feature/dry_grass_patch_placed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/data/polluted_world/worldgen/world_preset/polluted_world.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/resources/main/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/build/resources/main/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileClientJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/build/tmp/compileClientJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedStartManager.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedStructurePlacer$NetworkResult.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedStructurePlacer$PlaceResult.class.uniqueId9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedStructurePlacer$StartResult.class.uniqueId11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedStructurePlacer$SurfaceCorpsePlacer.class.uniqueId10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedStructurePlacer.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/PollutedWorldCommands.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/SideDungeonLayoutTestBuilder$RailChoice.class.uniqueId12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/SideDungeonLayoutTestBuilder.class.uniqueId16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/StationUnitTestBuilder.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$LaneConnects.class.uniqueId8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$LaneEnds.class.uniqueId15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$MiddleRailPairPlan.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$MiddleRailPairUnit.class.uniqueId13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$RailChoice.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$RailClusterPlan.class.uniqueId17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder$StationUnit.class.uniqueId14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/compileTransaction/stash-dir/UnitChainTestBuilder.class.uniqueId7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-6.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/2026-06-22-7.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/game_rules.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/game_rules.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/random_sequences.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/random_sequences.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/wandering_trader.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/wandering_trader.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/weather.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/weather.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/world_clocks.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/world_clocks.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/world_gen_settings.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/data/minecraft/world_gen_settings.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/data/minecraft/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/data/minecraft/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/data/polluted_world/polluted_world_state.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.-1.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/entities/r.0.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-1.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-2.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-2.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.-2.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.0.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.1.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.1.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/poi/r.1.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-1.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-2.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-2.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.-2.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.0.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.1.1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.1.2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/overworld/region/r.1.3.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/the_end/data/minecraft/ender_dragon_fight.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/the_end/data/minecraft/ender_dragon_fight.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/the_end/data/minecraft/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/the_end/data/minecraft/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/the_nether/data/minecraft/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/dimensions/minecraft/the_nether/data/minecraft/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/advancements/20c1711e-6e1a-34df-86a3-92ae832d2f9f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/advancements/c016ab36-f8ab-3a42-9127-a875f53562d0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/advancements/f9567117-2555-3219-a3d6-01de0ddd7332.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/data/20c1711e-6e1a-34df-86a3-92ae832d2f9f.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/data/20c1711e-6e1a-34df-86a3-92ae832d2f9f.dat_old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/data/c016ab36-f8ab-3a42-9127-a875f53562d0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/data/c016ab36-f8ab-3a42-9127-a875f53562d0.dat_old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/data/f9567117-2555-3219-a3d6-01de0ddd7332.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/data/f9567117-2555-3219-a3d6-01de0ddd7332.dat_old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/stats/20c1711e-6e1a-34df-86a3-92ae832d2f9f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/stats/c016ab36-f8ab-3a42-9127-a875f53562d0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/saves/新規ワールド/players/stats/f9567117-2555-3219-a3d6-01de0ddd7332.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/src/main/java/com/licht_meilleur/tree_of_yorishiro/fabric/FabricTreeOfYorishiroMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/src/main/java/com/licht_meilleur/tree_of_yorishiro/fabric/FabricTreeOfYorishiroMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric/src/main/java/com/licht_meilleur/tree_of_yorishiro/fabric/registry/FabricRegistries.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fabric/src/main/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/fabric/src/main/resources/fabric.mod.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/build/generated/sources/modMetadata/META-INF/neoforge.mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/build/generated/sources/modMetadata/META-INF/neoforge.mods.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/build/moddev/clientRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/build/moddev/clientRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/build/moddev/dataRunProgramArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/build/moddev/dataRunProgramArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/build/moddev/gameTestServerRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/build/moddev/gameTestServerRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/build/moddev/serverRunVmArgs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/build/moddev/serverRunVmArgs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/src/client/client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neoforge/src/main/main2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neoforge/src/main/java/com/licht_meilleur/tree_of_yorishiro/neoforge/NeoForgeTreeOfYorishiroMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/neoforge/src/main/java/com/licht_meilleur/tree_of_yorishiro/neoforge/NeoForgeTreeOfYorishiroMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neoforge/src/main/java/com/licht_meilleur/tree_of_yorishiro/neoforge/registry/NeoForgeRegistries.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +362,24 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="tree_of_yorishiro" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tree_of_yorishiro" type="f1a62948:ProjectNode" />
+                <item name="fabric" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tree_of_yorishiro" type="f1a62948:ProjectNode" />
+                <item name="fabric" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tree_of_yorishiro" type="f1a62948:ProjectNode" />
+                <item name="fabric" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="fabric" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -130,6 +436,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.tree_of_yorishiro [:fabric:runClient].executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -148,7 +455,7 @@
       <recent name="J:\minecraft orgenal mod with GPT\tree_of_yorishiro\fabric\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.neoforge - Client">
+  <component name="RunManager" selected="Gradle.tree_of_yorishiro [:fabric:runClient]">
     <configuration name="neoforge - Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="net.neoforged.devlaunch.Main" />
       <module name="tree_of_yorishiro.neoforge.main" />
@@ -189,6 +496,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="tree_of_yorishiro [:fabric:runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":fabric:runClient" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="tree_of_yorishiro" />
       <method v="2">
@@ -200,6 +532,11 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.tree_of_yorishiro [:fabric:runClient]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -225,7 +562,23 @@
       <option name="project" value="LOCAL" />
       <updated>1787028100595</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ARR">
+      <option name="closed" value="true" />
+      <created>1787031388860</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1787031388860</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ARR">
+      <option name="closed" value="true" />
+      <created>1787031427599</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1787031427599</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

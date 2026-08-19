@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "tree_of_yorishiro:headband",
+    "tree_of_yorishiro:running_machine"
+  ],
+  "result": {
+    "id": "tree_of_yorishiro:running_set",
+    "count": 1
+  }
+}
